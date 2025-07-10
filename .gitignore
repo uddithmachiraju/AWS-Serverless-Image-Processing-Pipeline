@@ -1,0 +1,86 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+*.env
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre
+.pyre/
+
+# AWS CLI credentials and config (optional, for safety)
+.aws/
+*.pem
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Logs
+*.log
+
+# VS Code settings
+.vscode/
+
+# MacOS / Linux / Windows
+.DS_Store
+Thumbs.db
+
+# Boto3/temporary AWS cache files
+__boto3_cache__/
+
+# Terraform (if you use it later)
+*.tfstate
+*.tfstate.*
+.terraform/
+terraform.tfvars
+
+# Local output buckets/files (if simulating)
+output/
+processed_images/
+uploads/

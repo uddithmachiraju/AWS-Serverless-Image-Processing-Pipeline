@@ -84,3 +84,6 @@ terraform.tfvars
 output/
 processed_images/
 uploads/
+
+# Extra
+tasks.txt

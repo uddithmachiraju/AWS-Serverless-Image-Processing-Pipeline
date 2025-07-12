@@ -1,12 +1,12 @@
 from fastapi import FastAPI
 from api.models import S3Upload 
-from deploy.deploy_lambda import deploy
+from app.s3.s3_utils import upload_files
 
 app = FastAPI() 
 
 @app.post("/upload") 
 def upload_objects_to_s3(item: S3Upload):
-    deploy(item.bucket_name, item.region, item.filename, item.key) 
+    upload_files(item.bucket_name, item.filename, item.key) 
     return {
         "status": "success", 
-    }
+    } 

@@ -26,20 +26,8 @@ def create_bucket_if_not_exists(bucket_name: str, region: str):
                     }
                 )
             print(f"Created a New Bucket {bucket_name}") 
-            return bucket_name, s3_client
         except Exception as e:
             print(f"Failed to create bucket '{bucket_name}': {e}")
             return str(e)
     else: 
         print(f"Bucket already exists: {bucket_name}") 
-        return bucket_name, s3_client
-
-def upload_files(bucket_name: str, region :str, filename: str, key: str):
-    bucket_name, s3_client = create_bucket_if_not_exists(bucket_name, region) 
-    try:
-        s3_client.upload_file(
-            filename, bucket_name, key 
-        ) 
-        print(f"Uploaded files to {bucket_name} from {filename} named as {key}") 
-    except Exception as e:
-        print(f"Failed to upload file: {e}") 

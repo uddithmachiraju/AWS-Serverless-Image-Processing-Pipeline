@@ -4,7 +4,12 @@
     1. Empty the bucket - `aws s3 rm <s3://bucket-name> --recursive`
     2. Delete the bucket - `aws s3api delete-bucket --bucket <bucket-name> --region <region>`
 3. `aws s3 ls <bucket-name>` - Lists the objects in the bucket.
-4. `aws s3api list-objects-v2 --bucket <bucket-name>`
+4. `aws s3api list-objects-v2 --bucket <bucket-name>` - get the information about the content in that bucket.
+5. To delete an IAM role
+    1. Lists down the attached policies - `aws iam list-attached-role-policies --role-name <role-name>` 
+    2. Detach the policies first - `aws iam detach-role-policy --role-name <role-name> --policy-arn <policy-arn>`
+    3. Delete the role - `aws iam delete-role --role-name <role-name>` 
+6. `aws iam list-roles` - List down all the roles.
 
 ## AWS Fuctions
 1. `create_bucket` - Creates a bucket

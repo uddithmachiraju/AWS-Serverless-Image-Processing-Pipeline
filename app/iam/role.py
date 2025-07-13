@@ -40,5 +40,6 @@ def create_iam_role(rolename, region):
         )
         print(f"IAM Role Created with name: {rolename}") 
         return response
-    except Exception as e:
-        print(f"Something Intrupted: {e}") 
+    except iam_client.exceptions.EntityAlreadyExistsException:
+        print(f"IAM Role '{rolename}' already exists, returning existing role info.")
+        return iam_client.get_role(RoleName=rolename) 

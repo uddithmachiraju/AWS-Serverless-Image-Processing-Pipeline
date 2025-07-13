@@ -10,8 +10,16 @@
     2. Detach the policies first - `aws iam detach-role-policy --role-name <role-name> --policy-arn <policy-arn>`
     3. Delete the role - `aws iam delete-role --role-name <role-name>` 
 6. `aws iam list-roles` - List down all the roles.
+7. `aws lambda list-functions --region <region>` - Lists the functions in that region
+8. `aws lambda delete-function --function-name <function-name> --region <region>` - Deletes a lambda function
 
 ## AWS Fuctions
 1. `create_bucket` - Creates a bucket
 2. `head_bucket` - Check if the bucket exists raises an Error if not else None
 3. `upload_file` - Uploads the file to the bucket
+4. `iam_client.create_role` - Creates an IAM Role
+5. `iam_client.attach_role_policy` - Attached policies to the role. 
+6. `lambda_client.create_function` - Creates a lambda function. 
+7. `lambda_client.add_permission` - Grants permission to another AWS service. 
+8. `s3_client.put_bucket_notification_configuration` - Configure S3 bucket to trigger events and notify a destination.
+9. `iam_clinet.get_role` - Retrieves details of an existing IAM role

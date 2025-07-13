@@ -86,4 +86,5 @@ processed_images/
 uploads/
 
 # Extra
-tasks.txt
+tasks.txt 
+*zip

@@ -5,10 +5,25 @@ A fully serverless image processing pipeline on AWS! Upload an image to S3, auto
 ## Architecture 
 <img src="assets/Architecture.webp" width="800"/>
 
-## Key Features of the Project
-1. S3
-2. Lambda
-3. SNS 
+## Key Features
+- Serverless architecture
+- Image preprocessing using AWS Lambda
+- S3 bucket integration for input/output storage
+- Email notification via Amazon SNS
+- No backend servers to manage
+
+## Tech Stack
+1. **AWS S3** - Storage for Raw and processed images
+2. **AWS Lambda** - Image preprocessing logic
+3. **AWS SNS** - Notification System
+4. **Python** - Lambda Runtime
+5. **Boto3** - AWS SDK for python
+
+## Workflow
+1. User uploads an image to bucket 1
+2. S3 event triggers the lambda function when new object is created in S3.
+3. Lambda process the image and upload it to bucket 2
+4. Lambda also triggers the SNS notification with details.
 
 ## How to run/use the application
 - As of now I haven't yet deployed it. So, we need to run it manually in local. 

@@ -21,5 +21,7 @@ def create_lambda_function(function_name, region, role_arn, zip_path, handler, r
             MemorySize = 128, 
         ) 
         print(f"Lambda Function Created: {function_name}")
+        return response 
     except Exception as e:
         print(f"Exception: {e}") 
+        return None 

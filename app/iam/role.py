@@ -1,8 +1,8 @@
 import boto3 
 import json
 
-def create_iam_role(rolename):
-    iam_client = boto3.client("iam")
+def create_iam_role(rolename, region):
+    iam_client = boto3.client("iam", region_name = region)
 
     # Define policy to the Role
     assume_role_policy = {

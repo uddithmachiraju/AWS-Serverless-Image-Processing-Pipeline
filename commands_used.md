@@ -12,6 +12,7 @@
 6. `aws iam list-roles` - List down all the roles.
 7. `aws lambda list-functions --region <region>` - Lists the functions in that region
 8. `aws lambda delete-function --function-name <function-name> --region <region>` - Deletes a lambda function
+9. `aws s3api get-bucket-policy --bucket <bucket-name>` - Get the Bucket policies 
 
 ## AWS Fuctions
 1. `create_bucket` - Creates a bucket
@@ -23,3 +24,6 @@
 7. `lambda_client.add_permission` - Grants permission to another AWS service. 
 8. `s3_client.put_bucket_notification_configuration` - Configure S3 bucket to trigger events and notify a destination.
 9. `iam_clinet.get_role` - Retrieves details of an existing IAM role
+10. `s3_client.get_object` - 
+11. `s3_client.put_object` - 
+12. `s3_client.put_bucket_policy` - Adds a policy to the bucket. 

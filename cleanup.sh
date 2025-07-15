@@ -26,7 +26,7 @@ done
 # 3. Detach and delete role
 echo "Detaching the policies from IAM Role: $ROLE_NAME" 
 aws iam detach-role-policy --role-name $ROLE_NAME --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
-aws iam detach-role-policy --role-name $ROLE_NAME --policy-arn arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess
+aws iam detach-role-policy --role-name $ROLE_NAME --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
 
 echo "Deleting the IAM Role: $ROLE_NAME" 
 aws iam delete-role --role-name $ROLE_NAME --region $REGION 

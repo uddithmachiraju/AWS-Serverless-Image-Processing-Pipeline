@@ -1,4 +1,4 @@
-.PHONY: all clean build zip deploy
+.PHONY: all clean build zip deploy api 
 
 LAMBDA_ZIP=lambda_func.zip 
 SRC_ZIP=app/lambda_func
@@ -20,4 +20,7 @@ zip:
 	cd $(BUILD_DIR) && zip -r ../../$(LAMBDA_ZIP) . 
 
 deploy:
-	poetry run python -m deploy.deploy_lambda
+	poetry run python -m deploy.main
+
+api:
+	poetry run uvicorn main:app --reload

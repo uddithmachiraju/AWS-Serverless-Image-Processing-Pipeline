@@ -33,10 +33,10 @@ def create_iam_role(rolename, region):
             PolicyArn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
         )
 
-        # 2. S3 Read only access 
+        # 2. S3 Full access 
         iam_client.attach_role_policy(
             RoleName = rolename,
-            PolicyArn = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
+            PolicyArn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
         )
         print(f"IAM Role Created with name: {rolename}") 
         return response

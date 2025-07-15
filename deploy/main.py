@@ -15,7 +15,7 @@ def deploy(filename = "tasks.txt", key = "tasks.txt"):
     print("Waiting 60 seconds for IAM role to propagate...")
     time.sleep(60) 
     lambda_func_response = create_lambda_function(function_name = "AWSIPP", region = region, 
-                           role_arn = iam_role_response["Role"]["Arn"], zip_path = "app/lambda_func/lambda_func.zip", handler = "handler.lambda_handler", 
+                           role_arn = iam_role_response["Role"]["Arn"], zip_path = "lambda_func.zip", handler = "handler.lambda_handler", 
                            runtime = "python3.12")
     print("Waiting 60 seconds for Lambda to propagate...")
     time.sleep(60) 

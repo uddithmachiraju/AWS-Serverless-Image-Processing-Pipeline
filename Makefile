@@ -4,16 +4,17 @@ LAMBDA_ZIP=lambda_func.zip
 SRC_ZIP=app/lambda_func
 BUILD_DIR=build/lambda 
 HANDLER=handler.py
+APP_DIR=app
 
 # Clean the previous build 
 clean:
 	rm -rf $(BUILD_DIR) $(LAMBDA_ZIP) 
 
-# create build and install dependencies
 build:
 	mkdir -p $(BUILD_DIR)
 	pip install pillow -t $(BUILD_DIR) 
 	cp $(SRC_ZIP)/$(HANDLER) $(BUILD_DIR) 
+	cp -r $(APP_DIR)/ $(BUILD_DIR) 
 
 # Zip the entire build dir 
 zip:

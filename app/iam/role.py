@@ -38,6 +38,13 @@ def create_iam_role(rolename, region):
             RoleName = rolename,
             PolicyArn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
         )
+
+        # 3. SNS full access (only for testing) 
+        iam_client.attach_role_policy(
+            RoleName=rolename,
+            PolicyArn="arn:aws:iam::aws:policy/AmazonSNSFullAccess"
+        )
+
         print(f"IAM Role Created with name: {rolename}") 
         return response
     except iam_client.exceptions.EntityAlreadyExistsException:

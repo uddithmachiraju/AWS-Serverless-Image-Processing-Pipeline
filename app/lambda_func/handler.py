@@ -3,6 +3,7 @@ import json
 from PIL import Image 
 import io 
 import os 
+from app.sns.setup_sns import send_sns_notification
 
 s3_client = boto3.client("s3") 
 
@@ -32,6 +33,8 @@ def lambda_handler(event, context):
         Body = output_buffer,
         ContentType = "image/png"
     ) 
+
+    send_sns_notification(bucket_name = target_bucket, image_key = object_key)
 
     return {
         "Status" : 200,

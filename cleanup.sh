@@ -6,6 +6,7 @@ BUCKET_2="bucket-2-5027"
 LAMBDA="AWSIPP"
 ROLE_NAME="lambda-s3-execution-role"
 REGION="ap-south-1"
+TOPIC_ARN="arn:aws:sns:us-east-1:847128339366:upload-notification"
 
 echo "Started Cleaning..."
 
@@ -27,8 +28,18 @@ done
 echo "Detaching the policies from IAM Role: $ROLE_NAME" 
 aws iam detach-role-policy --role-name $ROLE_NAME --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
 aws iam detach-role-policy --role-name $ROLE_NAME --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+aws iam detach-role-policy --role-name $ROLE_NAME --policy-arn arn:aws:iam::aws:policy/AmazonSNSFullAccess
 
 echo "Deleting the IAM Role: $ROLE_NAME" 
 aws iam delete-role --role-name $ROLE_NAME --region $REGION 
+
+# 4. Unsubscribe and delete SNS 
+for sub in $(aws sns list-subscriptions-by-topic --topic-arn "$TOPIC_ARN" --query 'Subscriptions[].SubscriptionArn' --output text)
+do
+    echo "Unsubcribing the topic: $sub" 
+    aws sns unsubscribe --subscription-arn "$sub"
+done
+
+aws sns delete-topic --topic-arn "$TOPIC_ARN"
 
 echo "Cleanup completed.." 

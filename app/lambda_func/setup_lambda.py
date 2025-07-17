@@ -1,6 +1,6 @@
 import boto3  
 
-def create_lambda_function(function_name, region, role_arn, zip_path, handler, runtime):
+def create_lambda_function(function_name, region, role_arn, zip_path, handler, runtime, topic_arn):
     lambda_client = boto3.client("lambda", region_name = region) 
 
     # Need to pass the binary code to lambda 
@@ -19,6 +19,11 @@ def create_lambda_function(function_name, region, role_arn, zip_path, handler, r
             },
             Timeout = 30,
             MemorySize = 128, 
+            Environment={
+                'Variables': {
+                    'SNS_TOPIC_ARN': "arn:aws:sns:ap-south-1:847128339366:upload-notification"
+                }
+            }
         ) 
         print(f"Lambda Function Created: {function_name}")
         return response 

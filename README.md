@@ -32,7 +32,10 @@ A fully serverless image processing pipeline on AWS! Upload an image to S3, auto
 2. Open in VSCode and use the environment setup for easy installation.
 3. after setting up the environemnt;
     - RUN: 
-        1. `poetry run uvicorn main:app --reload` - Runs the FastAPI in the background
-        2. Open a new terminal
-        3. `poetry run python -m deploy.deploy_lambda` - creates the resources required
-        4. Use `postman` or `curl` to upload objects to bucket and start the process. 
+        1. `make clean build zip` - To build the `lambda_func.zip` folder
+        2. `make deploy` - Deploy the services and integrate them.
+        3. Open a new terminal and run `make api` - This will run a fastapi endpoint 
+        4. Go to `http://localhost:8000/upload` and pass this `{ "bucket_name": "bucket-1-5027", "filename": "/workspaces/assets/Architecture.webp", "key": "image.png" }` to start the process.
+        5. You gonna receive a email shortly. 
+
+Build by **M. Sanjay Uddith Raju** 
